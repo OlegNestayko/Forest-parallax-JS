@@ -1,0 +1,170 @@
+/* Min res */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Variables */
+:root {
+  --index: calc(1vw + 1vh);
+  --text: #e7e7e0;
+  --transition: transform 0.75s cubic-bezier(0.075, 0.5, 0, 1);
+}
+
+/* Fonts */
+@font-face {
+  font-family: raleway_f;
+  src: url(../fonts/raleway-regular.woff2);
+}
+@font-face {
+  font-family: raleway_f;
+  src: url(../fonts/raleway-black.woff2);
+  font-weight: 900;
+}
+
+/* ---------------------------------------- */
+body {
+  font-family: raleway_f, sans-serif;
+  line-height: 1.55;
+
+  background-color: #010101;
+}
+
+.content {
+  will-change: transform;
+}
+
+/* ---------------------------------------- */
+/* Header section */
+.header {
+  position: relative;
+}
+
+.header::after {
+  content: "";
+  position: absolute;
+  bottom: calc(var(--index) * -4.5);
+  z-index: 100;
+
+  height: calc(var(--index) * 10);
+
+  background: url(../img/ground.png) 0 0 / cover no-repeat;
+}
+/* ---------------------------------------- */
+.layers {
+  position: relative;
+
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+
+  overflow: hidden;
+}
+
+.layer {
+  position: absolute;
+  z-index: 2;
+
+  height: 100%;
+  width: 100%;
+
+  transition: var(--transition);
+  will-change: transform;
+}
+/* ---------------------------------------- */
+.layers__base {
+  z-index: 0;
+
+  background: url(../img/layer-base.png) 0 0 / cover no-repeat;
+
+  transform: translate3d(0, calc(var(--scrollTop) / 1.6), 0);
+}
+
+.layers__middle {
+  background: url(../img/layer-middle.png) 0 0 / cover no-repeat;
+
+  transform: translate3d(0, calc(var(--scrollTop) / 2.5), 0);
+}
+
+.layers__front {
+  background: url(../img/layer-front.png) 0 0 / cover no-repeat;
+
+  transform: translate3d(0, calc(var(--scrollTop) / 5.7), 0);
+}
+/* ---------------------------------------- */
+.layers__header {
+  z-index: 1;
+
+  font-weight: 900;
+  color: var(--text);
+
+  text-transform: uppercase;
+  text-shadow: 0 0 15px #9d822b;
+
+  transition: var(--transition);
+  transform: translate3d(0, calc(var(--scrollTop) / 2), 0);
+
+  will-change: transform;
+}
+
+.layers__title {
+  font-size: calc(var(--index) * 2.65);
+
+  letter-spacing: calc(var(--index) / 2.25);
+}
+
+.layers__caption {
+  margin-top: calc(var(--index) * -0.75);
+
+  font-size: calc(var(--index) / 1.175);
+
+  letter-spacing: calc(var(--index) / 3.5);
+}
+/* ---------------------------------------- */
+/* Footer section */
+.footer {
+  position: relative;
+  top: -1px;
+  z-index: 10;
+
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  color: var(--text);
+  text-align: center;
+
+  background: url(../img/dungeon.jpg) 0 0 / cover no-repeat;
+
+  --footer-transform: translate3d(0, calc(var(--scrollTop) / -7.5), 0);
+}
+/* ---------------------------------------- */
+.footer__title {
+  font-size: calc(var(--index) * 1.8);
+
+  text-transform: uppercase;
+  letter-spacing: calc(var(--index) / 7.5);
+
+  transition: var(--transition);
+  transform: var(--footer-transform);
+
+  will-change: transform;
+}
+
+.footer__text {
+  margin-top: calc(var(--index) / 1.25);
+
+  max-width: calc(var(--index) * 30);
+
+  font-size: calc(var(--index) * 0.9);
+
+  transform: var(--footer-transform);
+  transition: var(--transition);
+
+  will-change: transform;
+}
