@@ -79,7 +79,7 @@ body {
 .layers__base {
   z-index: 0;
 
-  background: url(../img/layer-base.png) 0 0 / cover no-repeat;
+  background: url(../img/layer-base.jpg) 0 0 / cover no-repeat;
 
   transform: translate3d(0, calc(var(--scrollTop) / 1.6), 0);
 }
